@@ -1,7 +1,7 @@
-import DanAbramovImage from "../assets/images/DanAbramovImage";
-import RyanFlorenceImage from "../assets/images/RyanFlorenceImage";
-import MichaelJacksonImage from "../assets/images/MichaelJacksonImage";
-import MichaelCDoodsImage from "../assets/images/MichaelCDoods";
+import DanAbramovImage from "../assets/images/DanAbramovImage.jpg";
+import RyanFlorenceImage from "../assets/images/RyanFlorenceImage.jpg";
+import MichaelJacksonImage from "../assets/images/MichaelJacksonImage.jpg";
+import MichaelCDoodsImage from "../assets/images/MichaelCDoodsImage.jpg";
 
 export const twitterAcounts = [
   {
