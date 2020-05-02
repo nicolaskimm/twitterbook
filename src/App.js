@@ -1,9 +1,10 @@
 import React from "react";
+import ListWrapper from "./components/ListWrapper/ListWrapper";
 
 function App() {
   return (
     <div>
-      <p> hello world</p>
+      <ListWrapper />
     </div>
   );
 }
