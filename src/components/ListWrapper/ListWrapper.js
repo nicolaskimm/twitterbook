@@ -1,14 +1,18 @@
 import React from "react";
 import "./ListWrapper.css";
-import { twitterAcounts } from "../../data/twitterAcounts";
+import PropTypes from "prop-types";
 import ListItem from "./ListItem/ListItem";
 
-const ListWrapper = () => (
+const ListWrapper = ({ items }) => (
   <ul className="listWrapper__wrapper">
-    {twitterAcounts.map((item) => (
+    {items.map((item) => (
       <ListItem {...item} />
     ))}
   </ul>
 );
+
+ListWrapper.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default ListWrapper;
