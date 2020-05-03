@@ -6,7 +6,7 @@ import ListItem from "./ListItem/ListItem";
 const ListWrapper = ({ items }) => (
   <ul className="listWrapper__wrapper">
     {items.map((item) => (
-      <ListItem {...item} />
+      <ListItem key={item.name} {...item} />
     ))}
   </ul>
 );

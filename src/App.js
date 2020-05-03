@@ -1,14 +1,15 @@
 import React from "react";
 import "./index.css";
 import ListWrapper from "./components/ListWrapper/ListWrapper";
+import Form from "./components/Form/Form";
 
-const initialState = [
+const initialStateItems = [
   {
     image:
       "https://render.fineartamerica.com/images/rendered/default/print/6.5/8/break/images-medium-5/frenzy-wladyslaw-podkowinski.jpg",
     name: "Dan Abramov",
     description: "I didn’t make @reactjs",
-    twitterLink: "https://twitter.com/dan_abramov",
+    link: "https://twitter.com/dan_abramov",
   },
   {
     image:
@@ -16,7 +17,7 @@ const initialState = [
     name: "Ryan Florence",
     description:
       "Making web development fun and awesome with @remix_run, @reacttraining, React Router, and Reach UI",
-    twitterLink: "https://twitter.com/ryanflorence",
+    link: "https://twitter.com/ryanflorence",
   },
   {
     image:
@@ -24,7 +25,7 @@ const initialState = [
     name: "Michael Jackson",
     description:
       "Building @remix_run, @ReactTraining and @unpkg. Father of 2 sons, 2 daughters. Speaker, writer.",
-    twitterLink: "https://twitter.com/mjackson",
+    link: "https://twitter.com/mjackson",
   },
   {
     image:
@@ -32,19 +33,37 @@ const initialState = [
     name: "Michael C. Doods",
     description:
       "Improving the world w/ quality software · Husband, Father, Latter-day Saint, Teacher, OSS",
-    twitterLink: "https://twitter.com/kentcdodds",
+    link: "https://twitter.com/kentcdodds",
   },
 ];
 
 class App extends React.Component {
   state = {
-    items: [...initialState],
+    items: [...initialStateItems],
+  };
+
+  addItem = (e) => {
+    e.preventDefault();
+
+    const newItem = {
+      image: e.target[0].value,
+      name: e.target[1].value,
+      description: e.target[2].value,
+      link: e.target[3].value,
+    };
+
+    this.setState((prevState) => ({
+      items: [...prevState.items, newItem],
+    }));
+
+    e.target.reset();
   };
 
   render() {
     return (
       <div>
         <ListWrapper items={this.state.items} />
+        <Form addItem={this.addItem} />
       </div>
     );
   }
