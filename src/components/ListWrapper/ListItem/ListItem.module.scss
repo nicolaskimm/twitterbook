@@ -27,6 +27,15 @@
     border-radius: 50%;
   }
 
+  .imageNone {
+    @extend .image;
+
+    background: url("https://images.pexels.com/photos/1536431/pexels-photo-1536431.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")
+      no-repeat;
+    background-size: cover;
+    background-position: right;
+  }
+
   .name {
     margin: 0;
     color: #343961;
