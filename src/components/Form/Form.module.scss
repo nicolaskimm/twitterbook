@@ -19,27 +19,6 @@
   justify-content: center;
   align-items: flex-start;
 
-  .formInput {
-    margin: 0 0 50px 0;
-    padding: 0;
-    width: 100%;
-    border: none;
-    border-bottom: 2px solid #c2c2d6;
-    color: #c2c2d6;
-  }
-
-  .formTextarea {
-    @extend .formInput;
-    min-height: 150px;
-    resize: none;
-  }
-
-  .formInput:focus,
-  .formTextarea:focus {
-    outline: none;
-    border-bottom: 2px solid #343961;
-  }
-
   .formButton {
     width: 100px;
     height: 30px;
