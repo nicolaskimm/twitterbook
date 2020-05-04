@@ -4,11 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  h3 {
-    color: #343961;
-    margin: 0 0 60px 0;
-  }
 }
 
 .form {
@@ -18,12 +13,4 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-
-  .formButton {
-    width: 100px;
-    height: 30px;
-    border: 2px solid #343961;
-    background: none;
-    justify-content: flex-start;
-  }
 }

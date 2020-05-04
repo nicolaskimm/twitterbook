@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Button from "../../Button/Button";
+import Title from "../../Title/Title";
 import styles from "./ListItem.module.scss";
 
 const ListItem = ({ image, name, description, link }) => {
@@ -13,11 +15,11 @@ const ListItem = ({ image, name, description, link }) => {
         className={ImageTag === "img" ? styles.image : styles.imageNone}
       />
       <div>
-        <h2 className={styles.name}>{name}</h2>
+        <Title>{name}</Title>
         <p className={styles.description}>{description}</p>
-        <a className={styles.button} href={link} target="_blank" rel="noopener noreferrer">
+        <Button linkButton href={link}>
           visit twitter page
-        </a>
+        </Button>
       </div>
     </li>
   );
