@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 50px 30px;
+  margin: 0 0 50px 0;
+
+  .image {
+    flex-shrink: 0;
+    margin-right: 30px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+
+  .name {
+    margin: 0;
+    color: #343961;
+    font-weight: 700;
+  }
+
+  .description {
+    font-weight: 300;
+    margin: 10px 0 30px;
+  }
+
+  .button {
+    text-decoration: none;
+    border: 2px solid #343961;
+    padding: 7px 12px;
+    font-weight: 500;
+  }
+}
