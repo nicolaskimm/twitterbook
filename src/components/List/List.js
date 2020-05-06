@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./ListWrapper.module.scss";
+import styles from "./List.module.scss";
 import PropTypes from "prop-types";
-import ListItem from "./ListItem/ListItem";
+import ListItem from "./ListItem";
 
-const ListWrapper = ({ items }) => (
+const List = ({ items }) => (
   <ul className={styles.wrapper}>
     {items.map((item) => (
       <ListItem key={item.name} {...item} />
@@ -11,8 +11,8 @@ const ListWrapper = ({ items }) => (
   </ul>
 );
 
-ListWrapper.propTypes = {
+List.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default ListWrapper;
+export default List;
