@@ -1,7 +1,20 @@
 .button {
+  display: block;
   text-decoration: none;
   border: 2px solid #343961;
   padding: 5px 10px;
+  font-size: 10px;
   font-weight: 500;
+  color: #1e58ff;
   background: none;
+  cursor: pointer;
+}
+
+.secondary {
+  @extend .button;
+  background-color: #343961;
+  color: white;
+  width: 120px;
+  font-size: 0.8em;
+  font-weight: 700;
 }

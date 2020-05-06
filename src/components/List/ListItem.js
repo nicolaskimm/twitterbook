@@ -17,7 +17,7 @@ const ListItem = ({ image, name, description, link }) => {
       <div>
         <Title>{name}</Title>
         <p className={styles.description}>{description}</p>
-        <Button linkButton href={link}>
+        <Button href={link}>
           visit twitter page
         </Button>
       </div>
