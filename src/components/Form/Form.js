@@ -9,10 +9,10 @@ const Form = ({ addItem }) => (
   <div className={styles.wrapper}>
     <Title> Add new twitter acccount </Title>
     <form onSubmit={addItem} className={styles.form} autoComplete="off">
-      <Input name="image" placeholder="image" required={false} />
-      <Input name="name" placeholder="name" />
-      <Input name="link" placeholder="link" />
-      <Input tag="textarea" name="description" placeholder="description" />
+      <Input name="image" label="image" required={false} />
+      <Input name="name" label="name" />
+      <Input name="link" label="link" />
+      <Input tag="textarea" name="description" label="description" />
       <Button>add new item</Button>
     </form>
   </div>

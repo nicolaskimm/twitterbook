@@ -2,21 +2,27 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Input.module.scss";
 
-const Input = ({ tag: Tag, name, placeholder, required }) => (
-  <Tag
-    type="text"
-    placeholder={placeholder}
-    name={name}
-    id={name}
-    className={Tag === "input" ? styles.formInput : styles.formTextarea}
-    required={required}
-  />
+const Input = ({ tag: Tag, name, label, required }) => (
+  <div className={styles.formItem}>
+    <Tag
+      className={Tag === "textarea" ? styles.textarea : styles.input}
+      type="text"
+      name={name}
+      id={name}
+      required
+      placeholder=" "
+    />
+    <label className={styles.label} htmlFor={name}>
+      {label}
+    </label>
+    <div className={styles.formItemBar} />
+  </div>
 );
 
 Input.propTypes = {
   tag: PropTypes.string,
   name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   required: PropTypes.bool,
 };
 
