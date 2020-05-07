@@ -29,37 +29,42 @@ class Form extends React.Component {
   };
 
   render() {
+    const { activeOption } = this.state;
+
     return (
       <div className={styles.wrapper}>
-        <Title> Add new {descriptions[this.state.activeOption]} </Title>
+        <Title> Add new {descriptions[activeOption]} </Title>
         <form onSubmit={this.props.addItem} className={styles.form} autoComplete="off">
           <div className={styles.formOptions}>
             <FormRadioInput
               id={types.twitter}
-              checked={this.state.activeOption === types.twitter}
+              checked={activeOption === types.twitter}
               changeFn={() => this.handleRadioButtonChange(types.twitter)}
             >
               Twitter
             </FormRadioInput>
             <FormRadioInput
               id={types.article}
-              checked={this.state.activeOption === types.article}
+              checked={activeOption === types.article}
               changeFn={() => this.handleRadioButtonChange(types.article)}
             >
               Article
             </FormRadioInput>
             <FormRadioInput
               id={types.note}
-              checked={this.state.activeOption === types.note}
+              checked={activeOption === types.note}
               changeFn={() => this.handleRadioButtonChange(types.note)}
             >
               Note
             </FormRadioInput>
           </div>
-
-          <Input name="image" label="image" required={false} />
-          <Input name="name" label="name" />
-          <Input name="link" label="link" />
+          {activeOption !== types.twitter ? null : (
+            <Input name="image" label="image" required={false} />
+          )}
+          <Input name="name" label={activeOption === types.twitter ? "twitter name" : "title"} />
+          {activeOption !== types.note ? (
+            <Input name="link" label={activeOption === types.twitter ? "twitter link" : "link"} />
+          ) : null}
           <Input tag="textarea" name="description" label="description" />
           <Button>add new item</Button>
         </form>
