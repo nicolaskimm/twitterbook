@@ -1,67 +1,40 @@
 import React from "react";
 import "./index.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import AppContext from "../../context/context";
 import TwittersView from "../TwittersView/TwittersView";
 import ArticlesView from "../ArticlesView/ArticlesView";
 import NotesView from "../NotesView/NotesView";
 import Header from "../../components/Header/Header";
 import Modal from "../../components/Modal/Modal";
 
-const initialStateItems = [
-  {
-    image:
-      "https://render.fineartamerica.com/images/rendered/default/print/6.5/8/break/images-medium-5/frenzy-wladyslaw-podkowinski.jpg",
-    name: "Dan Abramov",
-    description: "I didn’t make @reactjs",
-    link: "https://twitter.com/dan_abramov",
-  },
-  {
-    image:
-      "https://render.fineartamerica.com/images/rendered/default/print/6.5/8/break/images-medium-5/frenzy-wladyslaw-podkowinski.jpg",
-    name: "Ryan Florence",
-    description:
-      "Making web development fun and awesome with @remix_run, @reacttraining, React Router, and Reach UI",
-    link: "https://twitter.com/ryanflorence",
-  },
-  {
-    image:
-      "https://render.fineartamerica.com/images/rendered/default/print/6.5/8/break/images-medium-5/frenzy-wladyslaw-podkowinski.jpg",
-    name: "Michael Jackson",
-    description:
-      "Building @remix_run, @ReactTraining and @unpkg. Father of 2 sons, 2 daughters. Speaker, writer.",
-    link: "https://twitter.com/mjackson",
-  },
-  {
-    image:
-      "https://render.fineartamerica.com/images/rendered/default/print/6.5/8/break/images-medium-5/frenzy-wladyslaw-podkowinski.jpg",
-    name: "Michael C. Doods",
-    description:
-      "Improving the world w/ quality software · Husband, Father, Latter-day Saint, Teacher, OSS",
-    link: "https://twitter.com/kentcdodds",
-  },
-];
-
 class Root extends React.Component {
   state = {
-    items: [...initialStateItems],
+    items: {
+      twitters: [],
+      articles: [],
+      notes: [],
+    },
     isModalOpen: true,
   };
 
   addItem = (e) => {
     e.preventDefault();
 
-    const newItem = {
-      image: e.target[0].value,
-      name: e.target[1].value,
-      description: e.target[2].value,
-      link: e.target[3].value,
-    };
+    console.log("it works");
 
-    this.setState((prevState) => ({
-      items: [...prevState.items, newItem],
-    }));
+    // const newItem = {
+    //   image: e.target[0].value,
+    //   name: e.target[1].value,
+    //   description: e.target[2].value,
+    //   link: e.target[3].value,
+    // };
 
-    e.target.reset();
+    // this.setState((prevState) => ({
+    //   items: [...prevState.items, newItem],
+    // }));
+
+    // e.target.reset();
   };
 
   openModal = () => {
@@ -78,10 +51,12 @@ class Root extends React.Component {
 
   render() {
     const { isModalOpen } = this.state;
+    const contextElements = { ...this.state, addItem: this.addItem };
+
     return (
       <div>
         <BrowserRouter>
-          <>
+          <AppContext.Provider value={contextElements}>
             <Header openModalFn={this.openModal} />
             <h1> hello world </h1>
             <Switch>
@@ -90,7 +65,7 @@ class Root extends React.Component {
               <Route path="/notes" component={NotesView} />
             </Switch>
             {isModalOpen && <Modal closeModalFn={this.closeModal} />}
-          </>
+          </AppContext.Provider>
         </BrowserRouter>
       </div>
     );
