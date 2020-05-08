@@ -4,11 +4,17 @@ import PropTypes from "prop-types";
 import ListItem from "./ListItem";
 
 const List = ({ items }) => (
-  <ul className={styles.wrapper}>
-    {items.map((item) => (
-      <ListItem key={item.name} {...item} />
-    ))}
-  </ul>
+  <>
+    {items.length ? (
+      <ul className={styles.wrapper}>
+        {items.map((item) => (
+          <ListItem key={item.name} {...item} />
+        ))}
+      </ul>
+    ) : (
+      <h2 className={styles.noItems}> There's nothing here, add your first item! </h2>
+    )}
+  </>
 );
 
 List.propTypes = {

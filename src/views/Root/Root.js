@@ -14,7 +14,7 @@ class Root extends React.Component {
     article: [],
     note: [],
 
-    isModalOpen: true,
+    isModalOpen: false,
   };
 
   addItem = (e, newItem) => {
@@ -48,7 +48,6 @@ class Root extends React.Component {
         <BrowserRouter>
           <AppContext.Provider value={contextElements}>
             <Header openModalFn={this.openModal} />
-            <h1> hello world </h1>
             <Switch>
               <Route exact path="/" component={TwittersView} />
               <Route path="/articles" component={ArticlesView} />

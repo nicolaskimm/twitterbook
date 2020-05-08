@@ -81,7 +81,6 @@ class Form extends React.Component {
                   value={this.state.image}
                   name="image"
                   label="image"
-                  required={false}
                 />
               )}
               <Input
